@@ -1,8 +1,9 @@
 package idv.PN_Wu;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.*;
+import java.lang.reflect.Type;
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -119,7 +120,7 @@ public class DataSource {
             Connection connection = DriverManager.getConnection(url, user, password);
             connection.setAutoCommit(false);
             PreparedStatement preparedStatement = connection.prepareStatement(sql_FindSHA1, ResultSet.TYPE_SCROLL_INSENSITIVE);
-            preparedStatement.setString(1, strSHA1);
+            preparedStatement.setString(1, strSHA1.toUpperCase());
             ResultSet resultSet = preparedStatement.executeQuery();
             ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
             int colCount = resultSetMetaData.getColumnCount();
@@ -130,6 +131,8 @@ public class DataSource {
                 for (int j = 1; j <= colCount; j++) {
                     map.put(resultSetMetaData.getColumnName(j), resultSet.getObject(j));
                 }
+            } else if (strSHA1.length() == 40) {
+                insertSHA1(strSHA1);
             }
         } catch (SQLException e) {
             StringWriter stringWriter = new StringWriter();
@@ -146,7 +149,26 @@ public class DataSource {
         return map;
     }
 
+    private static void insertSHA1(String strSHA1) {
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql_insertRow);
+            preparedStatement.setString(1, strSHA1.toUpperCase());
+            preparedStatement.setNull(2, Types.VARCHAR);
+            preparedStatement.setBigDecimal(3, new BigDecimal(1));
+            preparedStatement.addBatch();
+            preparedStatement.executeBatch();
+            connection.commit();
+        } catch (SQLException e) {
+            StringWriter stringWriter = new StringWriter();
+            e.printStackTrace(new PrintWriter(stringWriter));
+            String toString = stringWriter.toString();
+            System.err.println(toString);
+        }
+    }
+
     public static void main(String[] args) {
-        new DataSource().findSHA1("70352F41061EDA4FF3C322094AF068BA70C3B38B");
+        new DataSource().findSHA1("a");
     }
 }
