@@ -111,7 +111,42 @@ public class DataSource {
         return list;
     }
 
+    public Map findSHA1(String strSHA1) {
+        Map map = new HashMap();
+
+        try {
+            Class.forName("org.mariadb.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql_FindSHA1, ResultSet.TYPE_SCROLL_INSENSITIVE);
+            preparedStatement.setString(1, strSHA1);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+            int colCount = resultSetMetaData.getColumnCount();
+            resultSet.last();
+            int rowCount = resultSet.getRow();
+            if (rowCount > 0) {
+                resultSet.first();
+                for (int j = 1; j <= colCount; j++) {
+                    map.put(resultSetMetaData.getColumnName(j), resultSet.getObject(j));
+                }
+            }
+        } catch (SQLException e) {
+            StringWriter stringWriter = new StringWriter();
+            e.printStackTrace(new PrintWriter(stringWriter));
+            String toString = stringWriter.toString();
+            System.err.println(toString);
+        } catch (ClassNotFoundException e) {
+            StringWriter stringWriter = new StringWriter();
+            e.printStackTrace(new PrintWriter(stringWriter));
+            String toString = stringWriter.toString();
+            System.err.println(toString);
+        }
+
+        return map;
+    }
+
     public static void main(String[] args) {
-        new DataSource().getRankingList(new BigDecimal(5), new BigDecimal(10));
+        new DataSource().findSHA1("70352F41061EDA4FF3C322094AF068BA70C3B38B");
     }
 }
