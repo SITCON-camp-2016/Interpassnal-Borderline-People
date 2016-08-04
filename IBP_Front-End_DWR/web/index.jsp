@@ -9,6 +9,14 @@
 <html>
   <head>
     <title>$Title$</title>
+    <script type='text/javascript' src='/IBP/dwr/engine.js'></script>
+    <script type='text/javascript' src='/IBP/dwr/util.js'></script>
+    <script type='text/javascript' src='/IBP/dwr/interface/DataSource.js'></script>
+    <script>
+      DataSource.getCountSum(function(bigDecimal){
+        alert(bigDecimal);
+      });
+    </script>
   </head>
   <body>
   $END$
