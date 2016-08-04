@@ -16,6 +16,9 @@
       DataSource.getCountSum(function(bigDecimal){
         alert(bigDecimal);
       });
+      DataSource.getRankingList(5, 10, function(bigDecimal){
+        alert(bigDecimal);
+      });
     </script>
   </head>
   <body>
