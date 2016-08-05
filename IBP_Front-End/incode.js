@@ -20,7 +20,12 @@ function getSumData(bigDecimal){
   sumOfData = bigDecimal;
 }
 
+
+var dataList_init;
+
 function appendData(firstId, len, dataList) {
+    dataList_init = dataList;
+
     $("#passData").html("");
     var html = "";
     for (var i = firstId; i < firstId + len; i++) {
@@ -44,17 +49,18 @@ function appendData(firstId, len, dataList) {
 
 var light_pwd;
 
-$(document).ready(function() {
-    appendData(dataList, 1);
 
-    $("#id-submit").on("click", function(e) {
+$(document).ready(function() {
+    appendData(1, 10, dataList_init);
+
+    $("#id-submit").on("submit", function(e) {
         // if ($.isNumeric($("#id-input").val())) {
         //     appendData(dataList, $("#id-input").val());
         // }
 
         var input = $('#id-input').val().split(',');
-        if (input.length == 1) appendData(dataList, input[0], 10);
-        else appendData(Number(input[0]), Number(input[1]), dataList);
+        if (input.length == 1) appendData(nput[0], 10, dataList_init);
+        else appendData(Number(input[0]), Number(input[1]), dataList_init);
         return false;
     });
 
