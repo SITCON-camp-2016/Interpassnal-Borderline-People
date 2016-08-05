@@ -15,17 +15,6 @@
     <link rel="stylesheet" type="text/css" href="/static/index.css">
     <link rel="stylesheet" type="text/css" href="index.css">
     <script type="text/javascript" src="incode.js"></script>
-    <script>
-    $(document).ready(function() {
-        $("#code_submit").on("click", function(e) {
-            e.preventDefault();
-            $(".result-black").fadeIn();
-        })
-        $("#code_close").click(function() {
-            $(".result-black").fadeOut(20);
-        })
-    });
-    </script>
 
     <script type="text/javascript" src="/IBP/dwr/engine.js"></script>
     <script type="text/javascript" src="/IBP/dwr/util.js"></script>
@@ -33,10 +22,10 @@
     <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script> 
     <script>
       DataSource.getCountSum(function(bigDecimal){
-        alert(bigDecimal);
+        getSumData(bigDecimal);
       });
-      DataSource.getRankingList(5, 10, function(bigDecimal){
-        alert(bigDecimal);
+      DataSource.getRankingList(firstId, len, function(bigDecimal){
+        appendData(firstId, len, bigDecimal);
       });
     </script>
 </head>
@@ -135,7 +124,7 @@
             </div>
         </div>
     </div>
-    <!-- construct members -->
+<!-- construct members -->
     <div class="container-fluid back-pic3">
         <div class="cntl-state" id="members">
             <div class="row">
@@ -150,10 +139,9 @@
                     <div class="round-button-circle round-button" id="Roger">
                         <div class="box">
                             <div class="box_detail">
-                                <p class="p-word">Hi</p>
+                                <p class="p-word">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ad modi laborum veniam fugiat eum dicta adipisci, nihil rem. Voluptates ullam accusamus similique molestias, excepturi velit placeat incidunt veritatis non.</p>
                             </div>
                         </div>
-                        <div class="circle-black"></div>
                     </div>
                 </div>
                 <div class="col-md-3">

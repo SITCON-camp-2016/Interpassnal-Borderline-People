@@ -1,149 +1,76 @@
-var dataList = [
-	{id: 1,
-  text: "lfajj'kjg'ja",
-  presence: 33,
-  marginal: 2,},
-  {id: 2,
-  text: "lfkljkjljklkl",
-  presence: 32,
-  marginal: 1,
-  },
-  {id: 3,
-  text: "lfajj'kjg'ja",
-  presence: 30,
-  marginal: 2,
-  },
-  {
-  id:4,
-  text: "dfzfgfdgfg",
-  presence:  28,
-  marginal: 4
-  },
-  {
-  id:5,
-  text: "dfz565456fg",
-  presence:  24,
-  marginal: 8
-  },
-  {
-  id:6,
-  text: "dfzf45464dgfg",
-  presence:  20,
-  marginal: 12
-  },
-  {
-  id:7,
-  text: "fzfdg9911fg",
-  presence: 15,
-  marginal: 18
-  },
-  {id: 8,
-  text: "lfajj'kjg'ja",
-  presence: 33,
-  marginal: 2,},
-  {id: 9,
-  text: "lfkljkjljklkl",
-  presence: 32,
-  marginal: 1,
-  },
-  {id: 10,
-  text: "lfajj'kjg'ja",
-  presence: 30,
-  marginal: 2,
-  },
-  {
-  id:11,
-  text: "dfzfgfdgfg",
-  presence:  28,
-  marginal: 4
-  },
-  {
-  id:12,
-  text: "dfz565456fg",
-  presence:  24,
-  marginal: 8
-  },
-  {
-  id:13,
-  text: "dfzf45464dgfg",
-  presence:  20,
-  marginal: 12
-  },
-  {
-  id:14,
-  text: "fzfdg9911fg",
-  presence: 15,
-  marginal: 18
-  }
- ]; 
-function appendData(dataList,firstId){
-  $("#passData").html("");
-	var html = "";
-	for(var i = firstId; i < firstId + 10; i++){
-    if (dataList.length > i){
-    	html += "<tr>";
-    	html += "<td>" + dataList[i-1].id + "</td>";
-      html += "<td>" + dataList[i-1].text + "</td>";
-      html += "<td>" + dataList[i-1].presence + "</td>";
-      html += "<td>" + dataList[i-1].marginal + "</td>";
-      html += "</tr>";
-    } 
-  }
-  $("#passData").append(html);
-} 
-  
-$(document).ready(function(){
-	appendData(dataList,1);
 
-  $("#id-submit").on("click",function(e){
-    if($.isNumeric($("#id-input").val()) ){
-      appendData(dataList, $("#id-input").val());
+// function appendData(dataList,firstId){
+//   $("#passData").html("");
+//  var html = "";
+//  for(var i = firstId; i < firstId + 10; i++){
+//     if (dataList.length > i){
+//      html += "<tr>";
+//      html += "<td>" + dataList[i-1].id + "</td>";
+//       html += "<td>" + dataList[i-1].text + "</td>";
+//       html += "<td>" + dataList[i-1].presence + "</td>";
+//       html += "<td>" + dataList[i-1].marginal + "</td>";
+//       html += "</tr>";
+//     } 
+//   }
+//   $("#passData").append(html);
+// }
+var sumOfData;
+
+function getSumData(bigDecimal){
+  sumOfData = bigDecimal;
+}
+
+function appendData(firstId, len, dataList) {
+    $("#passData").html("");
+    var html = "";
+    for (var i = firstId; i < firstId + len; i++) {
+        if (dataList.length > i) {
+            html += "<tr>";
+            html += "<td>" + i + "</td>";
+
+            if(i>10){
+              html += "<td>" + dataList[i - 1].SHA1 + "</td>"; 
+            }else{
+              html += "<td>" + dataList[i - 1].SHA1ToPassword + "</td>";
+            }
+            
+            html += "<td>" + dataList[i - 1].Count + "</td>";
+            html += "<td>" + sumOfData * 1.0 / (dataList[i - 1].Count * 100.0)   + "</td>";
+            html += "</tr>";
+        }
     }
-    return false;
-  });
+    $("#passData").append(html);
+}
+
+var light_pwd;
+
+$(document).ready(function() {
+    appendData(dataList, 1);
+
+    $("#id-submit").on("click", function(e) {
+        // if ($.isNumeric($("#id-input").val())) {
+        //     appendData(dataList, $("#id-input").val());
+        // }
+
+        var input = $('#id-input').val().split(',');
+        if (input.length == 1) appendData(dataList, input[0], 10);
+        else appendData(dataList, Number(input[0]), Number(input[1]));
+        return false;
+    });
+
+    $("#code_submit").on("click", function(e) {
+        // e.preventDefault();
+        if ($("#code_input").val().length != 0) {
+            light_pwd = $("#code_input").val();
+            $(".result-black").fadeIn();
+        }
+
+    })
+    $("#code_close").click(function() {
+        $(".result-black").fadeOut(20);
+    })
 });
 
-// $(document).ready(function() {
-//         $("code_submit").on("click", function(e) {
-//             e.preventDefault();
-//             $(".result-black").fadeIn();
-//         })
-//     });
-
-// var express = require('express');
-// var bodyParser = require('body-parser');
- 
-// var app = express()
- 
-// // parse application/x-www-form-urlencoded 
-// app.use(bodyParser.urlencoded({ extended: false }))
- 
-// // parse application/json 
-// app.use(bodyParser.json())
- 
-// // app.use(function (req, res) {
-// //   res.setHeader('Content-Type', 'text/plain')
-// //   res.write('you posted:\n')
-// //   res.end(JSON.stringify(req.body, null, 2))
-// // })
-
-// app.post('/text',function(req, res){
-// 	console.log(req.body.haha);
-// 	// $("code_submit").on("click", function(e) {
-//  //            e.preventDefault();
-//  //            $(".result-black").fadeIn();
-//  //        })
-// 	res.end();
-// })
-
-// app.get('#home',function(req, res){
-// 	res.sendFile(__dirname + '/index.html#statistics');
-// })
-
-// app.get('/',function(req, res){
-// 	res.sendFile(__dirname + '/index.html');
-// })
-
-
-
-// app.listen(1296);
+function tranToData(bigDecimal) {
+    bigDecimal = new String(new Crypt().HASH.sha1(light_pwd)).toUpperCase();
+}
