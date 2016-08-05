@@ -27,7 +27,7 @@ function appendData(firstId, len, dataList) {
 
     $("#passData").html("");
     var html = "";
-    for (var i = 0; i < dataList.length; i++) {
+    for (var i = 0; i < dataList.length ; i++) {
         html += "<tr>";
         html += "<td>" + (i + 1 + firstId) + "</td>";
 
@@ -38,7 +38,7 @@ function appendData(firstId, len, dataList) {
         }
 
         html += "<td>" + dataList[i].Count + "</td>";
-        html += "<td>" + sumOfData * 1.0 / (dataList[i].Count * 100.0) + "</td>";
+        html += "<td>" + sumOfData * 1.0 / dataList[i].Count + "%</td>";
         html += "</tr>";
     }
     $("#passData").append(html);

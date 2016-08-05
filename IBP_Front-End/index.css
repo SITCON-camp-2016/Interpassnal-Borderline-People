@@ -1,3 +1,7 @@
+.cntl-state{
+    padding-top: 80px;
+}
+
 .back-pic {
     /*background-image: url('pic/Cosmos01.jpg');*/
     background-color: orange;
@@ -7,8 +11,8 @@
 }
 
 .back-pic1 {
-    /*background-image: url('pic/Cosmos01.jpg');*/
-    background-color: lightblue;
+    background-image: url('pic/pic1.jpg');
+    /* background-color: lightblue; */
     /*fake temporary*/
     background-size: cover;
     height: 100%;
@@ -16,7 +20,7 @@
 
 .back-pic2 {
     /*background-image: url('pic/Cosmos01.jpg');*/
-    background-color: pink;
+    background-color: #fff;
     /*fake temporary*/
     background-size: cover;
     height: 100%;
@@ -118,26 +122,28 @@ body {
 .h1-title {
     font-size: 48px;
     font-weight: bolder;
+    text-align: center;
 }
 
 .p-word {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bolder;
     font: italic;
+}
+
+.desc-word {
+    font-size: 24px;
+    line-height: 60px;
 }
 
 .table-word {
     font-size: 24px;
 }
 
-.page-info {
-    padding:
-}
-
 .session1 {
-    margin: 150px;
+    margin: 0px 150px;
+    min-height: 100%;
 }
-
 .s1-input{
     padding: 0;
 }
@@ -261,4 +267,7 @@ body {
 
 #fish {
     background-image: url();
+}
+.white{
+    color:  #fff;
 }
