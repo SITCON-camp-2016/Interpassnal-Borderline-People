@@ -1,4 +1,3 @@
-
 // function appendData(dataList,firstId){
 //   $("#passData").html("");
 //  var html = "";
@@ -16,8 +15,8 @@
 // }
 var sumOfData;
 
-function getSumData(bigDecimal){
-  sumOfData = bigDecimal;
+function getSumData(bigDecimal) {
+    sumOfData = bigDecimal;
 }
 
 
@@ -33,14 +32,14 @@ function appendData(firstId, len, dataList) {
             html += "<tr>";
             html += "<td>" + i + "</td>";
 
-            if(i>10){
-              html += "<td>" + dataList[i - 1].SHA1 + "</td>"; 
-            }else{
-              html += "<td>" + dataList[i - 1].SHA1ToPassword + "</td>";
+            if (i > 10) {
+                html += "<td>" + dataList[i - 1].SHA1 + "</td>";
+            } else {
+                html += "<td>" + dataList[i - 1].SHA1toPassword + "</td>";
             }
-            
+
             html += "<td>" + dataList[i - 1].Count + "</td>";
-            html += "<td>" + sumOfData * 1.0 / (dataList[i - 1].Count * 100.0)   + "</td>";
+            html += "<td>" + sumOfData * 1.0 / (dataList[i - 1].Count * 100.0) + "</td>";
             html += "</tr>";
         }
     }
@@ -50,21 +49,33 @@ function appendData(firstId, len, dataList) {
 var light_pwd;
 
 
-$(document).ready(function() {
-    appendData(1, 10, dataList_init);
+$(document).ready(function () {
 
-    $("#rank").on("submit", function(e) {
+    $("#rank").on("submit", function (e) {
         // if ($.isNumeric($("#id-input").val())) {
         //     appendData(dataList, $("#id-input").val());
         // }
 
         var input = $('#id-input').val().split(',');
-        if (input.length == 1) appendData(nput[0], 10, dataList_init);
-        else appendData(Number(input[0]), Number(input[1]), dataList_init);
+        if (input.length == 1) {
+            DataSource.getCountSum(function(bigDecimal){
+                sumOfData = bigDecimal;
+                DataSource.getRankingList(Number(input[0]), Number(10), function(rankingList){
+                    appendData(Number(input[0]), Number(10), rankingList);
+                });
+            });
+        } else {
+            DataSource.getCountSum(function(bigDecimal){
+                sumOfData = bigDecimal;
+                DataSource.getRankingList(Number(input[0]), Number(10), function(rankingList){
+                    appendData(Number(input[0]), Number(input[1]), rankingList);
+                });
+            });
+        }
         return false;
     });
 
-    $("#code_submit").on("click", function(e) {
+    $("#code_submit").on("click", function (e) {
         // e.preventDefault();
         if ($("#code_input").val().length != 0) {
             light_pwd = $("#code_input").val();
@@ -72,7 +83,7 @@ $(document).ready(function() {
         }
 
     })
-    $("#code_close").click(function() {
+    $("#code_close").click(function () {
         $(".result-black").fadeOut(20);
     })
 });
