@@ -1,0 +1,260 @@
+.back-pic {
+    /*background-image: url('pic/Cosmos01.jpg');*/
+    background-color: orange;
+    /*fake temporary*/
+    background-size: cover;
+    height: 100%;
+}
+
+.back-pic1 {
+    /*background-image: url('pic/Cosmos01.jpg');*/
+    background-color: lightblue;
+    /*fake temporary*/
+    background-size: cover;
+    height: 100%;
+}
+
+.back-pic2 {
+    /*background-image: url('pic/Cosmos01.jpg');*/
+    background-color: pink;
+    /*fake temporary*/
+    background-size: cover;
+    height: 100%;
+}
+
+.back-pic3 {
+    /*background-image: url('pic/Cosmos01.jpg');*/
+    background-color: lightyellow;
+    /*fake temporary*/
+    background-size: cover;
+    height: 100%;
+}
+
+.back-pic4 {
+    /*background-image: url('pic/Cosmos01.jpg');*/
+    background-color: violet;
+    /*fake temporary*/
+    background-size: cover;
+    height: 100%;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.navb {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navs {
+    list-style-type: none;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.nav-item {
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+.navs a {
+    color: #000;
+}
+
+
+.navs a:hover li{
+    background-color: #eee;
+    transition: 1s;
+}
+.navs a:hover{
+    text-decoration: none;
+}
+
+.submit-item {
+    font-size: 20px;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.s1-input{
+    padding: 0;
+    padding-right: 5px;
+}
+
+.result-black {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    margin-top: 1em;
+}
+
+.result {
+    top: 300px;
+}
+
+.web-title {
+    font-size: 160px;
+    font-weight: bolder;
+    text-shadow: 5px 10px lightgray;
+    margin-top: 0%;
+}
+
+.web-description {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.h1-title {
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+.p-word {
+    font-size: 24px;
+    font-weight: bolder;
+    font: italic;
+}
+
+.table-word {
+    font-size: 24px;
+}
+
+.page-info {
+    padding:
+}
+
+.session1 {
+    margin: 150px;
+}
+
+.s1-input{
+    padding: 0;
+}
+
+.s1-input input[type=password]{
+    width: 95%;
+    padding: 0;
+    border: 0;
+    height: 40px;
+    margin-right: 5%;
+}
+
+.s1-input input[type=submit].btn-pass {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/*.round-button-circle {
+    margin: 0px auto;
+    width: 60%;
+    height: 60%;
+    border-radius: 99%;
+    border: 3px solid #00A99D;
+    overflow: hidden;
+    background: #4D4D4D;
+}*/
+
+.round-button-circle {
+  width: 90%;
+  height: 10%;
+  padding-bottom: 90%
+  ;
+  border-radius: 50%;
+  /*border: 10px solid #cfdcec;*/
+  border: 3px solid #00A99D;
+  overflow: hidden;
+/*  background: #4679BD;
+*//*  box-shadow: 0 0 3px gray;*/
+    background-size: cover;
+}
+
+/*.round-button-circle:hover {
+  background: #30588e;
+}*/
+
+/*.round-button a {
+  display: block;
+  float: left;
+  width: 100%;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  line-height: 1em;
+  margin-top: -0.5em;
+  text-align: center;
+  color: #e2eaf3;
+  font-family: Verdana;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+}*/
+
+.round-button {
+            width: 100%;
+            height: 100%;
+        }
+
+#Roger .box_detail {
+    display: none;
+}
+
+#Roger .box_detail{
+    display: block;
+    background-color: rgba(0,0,0,0.5);
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#Roger {
+    background-image: url("./pic/cat.jpg");
+}
+
+.circle-black {
+
+}
+
+#articleMoon {
+    background-image: url();
+}
+
+#PNWu {
+    background-image: url();
+}
+
+#djfire {
+    background-image: url();
+}
+
+#wei {
+    background-image: url();
+}
+
+#gon-fu {
+    background-image: url();
+}
+
+#blueblue{
+    background-image: url();
+}
+
+#fish {
+    background-image: url();
+}
+
+
+
+
+

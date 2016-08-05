@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我要成為密碼邊緣人</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script type="text/javascript" src="incode.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#code_submit").on("click", function(e) {
+            e.preventDefault();
+            $(".result-black").fadeIn();
+        })
+        $("#code_close").click(function() {
+            $(".result-black").fadeOut(20);
+        })
+    });
+    </script>
+
+    <script type="text/javascript" src="/IBP/dwr/engine.js"></script>
+    <script type="text/javascript" src="/IBP/dwr/util.js"></script>
+    <script type="text/javascript" src="/IBP/dwr/interface/DataSource.js"></script>
+    <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script> 
+    <script>
+      DataSource.getCountSum(function(bigDecimal){
+        alert(bigDecimal);
+      });
+      DataSource.getRankingList(5, 10, function(bigDecimal){
+        alert(bigDecimal);
+      });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid back-pic">
+        <div class="cntl-state" id="home">
+            <!-- <div class="row"><br><br><br></div> -->
+            <div class="row session1">
+                <div class="col-md-8 page-info">
+                    <h1 class="web-title">我要成<br>為密碼<br>邊緣人</h1>
+                </div>
+                <div class="col-md-4 submit-item">
+                    <p class="web-description">Lorem ipsum dolor sit amet,
+                        <br>consectetur adipisicing elit.
+                        <br>Quos perspiciatis impedit obcaecati porro non excepturi nisi modi,
+                        <br> amet consectetur eveniet.</p>
+                    <form action="#home" method="post">
+                        <div class="col-md-9 s1-input">
+                            <input type="password" class="" name="haha">
+                        </div>
+                        <div class="col-md-3 s1-input">
+                            <input type="submit" class="btn btn-primary btn-pass" id="code_submit" value="Go!">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- result black -->
+    <div class="result-black">
+        <div class="col-md-8 col-md-offset-2 panel result">
+            <div class="panel-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ab id exercitationem suscipit sit rem aliquid animi corporis reiciendis porro ad facilis deserunt provident reprehenderit veritatis, saepe praesentium, sequi quia.</p>
+            </div>
+            <form action="#home" method="get">
+                <input type="submit" value="close" id="code_close" class="btn btn-default btn-pass">
+            </form>
+        </div>
+    </div>
+    <!-- construct project -->
+    <div class="container-fluid back-pic1">
+        <div class="cntl-state" id="project">
+            <div class="row">
+                <br>
+                <br>
+                <br>
+            </div>
+
+            <div class="row">
+              <div class="column-md-4">
+                <h1 class="h1-title">功能介紹</h1>
+              </div>
+              <div class="column-md-8">
+                <p class="p-word">
+                    當您珍貴的資料只由密碼保護時，您應該好好考慮該使用什麼密碼。所幸您來到了「我要當個密碼邊緣人」。此網頁可以讓您輸入您想使用的密碼，根據搜尋資料庫，與十幾萬筆的有人曾經使用過的密碼比對，看看您的密碼重複出現了幾次，並適度嘲諷您，以達到遏阻的效果。您也可以參考前十個最多人使用的密碼，降低風險、提高安全性。
+                </p>
+              </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <!-- construct statistics -->
+    <div class="container-fluid back-pic2">
+        <div class="cntl-state" id="statistics">
+            <div class="row">
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h1 class="h1-title">統計資料</h1>
+                </div>
+                <div class="col-md-8">
+                    <form action="/id">
+                        <p>查詢第n筆~第n+9筆資料 : </p>
+                        <input type="text" name="id" value="" id="id-input">
+                        <input type="submit" value="輸入數字" id="id-submit">
+                    </form>
+                    <table class="table table-word">
+                        <thead>
+                            <tr>
+                                <td>名次</td>
+                                <td>密碼</td>
+                                <td>出現次數</td>
+                                <td>邊緣指數</td>
+                            </tr>
+                        </thead>
+                        <tbody id="passData">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- construct members -->
+    <div class="container-fluid back-pic3">
+        <div class="cntl-state" id="members">
+            <div class="row">
+                <br>
+                <br>
+                <br>
+                <h1 class="h1-title">專案成員</h1>
+            </div>
+            <div class="row">
+                <br>
+                <div class="col-md-3">
+                    <div class="round-button-circle round-button" id="Roger">
+                        <div class="box">
+                            <div class="box_detail">
+                                <p class="p-word">Hi</p>
+                            </div>
+                        </div>
+                        <div class="circle-black"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="round-button-circle round-button" id="articleMoon"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="round-button-circle round-button" id="PNWu"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="round-button-circle round-button" id="djfire"></div>
+                </div>
+            </div>
+            <div class="row">
+                <br>
+                <br>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="round-button-circle round-button" id="wei"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="round-button-circle round-button" id="gon-fu"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="round-button-circle round-button" id="blueblue"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="round-button-circle round-button" id="fish"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- construct contactus -->
+    <div class="container-fluid back-pic4">
+        <div class="cntl-state" id="contat_us">
+            <div class="row"></div>
+        </div>
+    </div>
+    <!-- construct nav-bar -->
+    <div class="navb">
+        <ul class="navs">
+            <a href="#home">
+                <li class="nav-item">Home</li>
+            </a>
+            <a href="#project">
+                <li class="nav-item">Project</li>
+            </a>
+            <a href="#statistics">
+                <li class="nav-item">Statistics</li>
+            </a>
+            <a href="#members">
+                <li class="nav-item">Members</li>
+            </a>
+            <a href="#contactus">
+                <li class="nav-item">Contact us</li>
+            </a>
+        </ul>
+    </div>
+</body>
+
+</html>
