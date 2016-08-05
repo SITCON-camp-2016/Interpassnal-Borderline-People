@@ -54,7 +54,7 @@ $(document).ready(function() {
 
         var input = $('#id-input').val().split(',');
         if (input.length == 1) appendData(dataList, input[0], 10);
-        else appendData(dataList, Number(input[0]), Number(input[1]));
+        else appendData(Number(input[0]), Number(input[1]), dataList);
         return false;
     });
 
