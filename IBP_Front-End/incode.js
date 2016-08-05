@@ -53,7 +53,7 @@ var light_pwd;
 $(document).ready(function() {
     appendData(1, 10, dataList_init);
 
-    $("#rank").on("submit", function(e) {
+    $("#id-button").on("click", function(e) {
         // if ($.isNumeric($("#id-input").val())) {
         //     appendData(dataList, $("#id-input").val());
         // }
