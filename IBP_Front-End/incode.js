@@ -27,21 +27,19 @@ function appendData(firstId, len, dataList) {
 
     $("#passData").html("");
     var html = "";
-    for (var i = firstId; i < firstId + len; i++) {
-        if (dataList.length > i) {
-            html += "<tr>";
-            html += "<td>" + i + "</td>";
+    for (var i = 0; i < dataList.length; i++) {
+        html += "<tr>";
+        html += "<td>" + (i + 1 + firstId) + "</td>";
 
-            if (i > 10) {
-                html += "<td>" + dataList[i - 1].SHA1 + "</td>";
-            } else {
-                html += "<td>" + dataList[i - 1].SHA1toPassword + "</td>";
-            }
-
-            html += "<td>" + dataList[i - 1].Count + "</td>";
-            html += "<td>" + sumOfData * 1.0 / (dataList[i - 1].Count * 100.0) + "</td>";
-            html += "</tr>";
+        if ((firstId + i + 1) > 10) {
+            html += "<td>'" + dataList[i].SHA1 + "'</td>";
+        } else {
+            html += "<td>" + dataList[i].SHA1toPassword + "</td>";
         }
+
+        html += "<td>" + dataList[i].Count + "</td>";
+        html += "<td>" + sumOfData * 1.0 / (dataList[i].Count * 100.0) + "</td>";
+        html += "</tr>";
     }
     $("#passData").append(html);
 }
@@ -58,16 +56,16 @@ $(document).ready(function () {
 
         var input = $('#id-input').val().split(',');
         if (input.length == 1) {
-            DataSource.getCountSum(function(bigDecimal){
+            DataSource.getCountSum(function (bigDecimal) {
                 sumOfData = bigDecimal;
-                DataSource.getRankingList(Number(input[0]), Number(10), function(rankingList){
+                DataSource.getRankingList(Number(input[0]), Number(10), function (rankingList) {
                     appendData(Number(input[0]), Number(10), rankingList);
                 });
             });
         } else {
-            DataSource.getCountSum(function(bigDecimal){
+            DataSource.getCountSum(function (bigDecimal) {
                 sumOfData = bigDecimal;
-                DataSource.getRankingList(Number(input[0]), Number(10), function(rankingList){
+                DataSource.getRankingList(Number(input[0]), Number(input[1]), function (rankingList) {
                     appendData(Number(input[0]), Number(input[1]), rankingList);
                 });
             });
